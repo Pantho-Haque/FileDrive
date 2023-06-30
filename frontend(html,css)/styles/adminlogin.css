@@ -1,0 +1,32 @@
+@import "./modules/init.css";
+@import "index.css";
+@import "login.css";
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admininfo {
+    z-index: 2;
+    width: 400px;
+    padding: 30px;
+    border: 1px solid var(--logo-500);
+    border-radius: 10px;
+    margin-bottom: 400px;
+    align-self: center;
+}
+
+.adminpanelheader {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.inputbox {
+    margin-bottom: 20px;
+}
+
+.inputholder {
+    margin-left: 25px;
+}

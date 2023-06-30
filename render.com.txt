@@ -1,0 +1,32 @@
+
+APP_NAME=FileDrive
+APP_ENV=local
+APP_KEY= base64:Z8fxC0YpGGwbxa4rHZ2MRuXkOrCLTe11kqaumngIZ80=
+APP_DEBUG=true
+APP_URL=127.0.0.1
+
+
+
+DATABASE_URL=postgres://pantho75:SmNuoAeqLwrEO6Xbg16yd8Vmgz9SOmZf@dpg-ch0ehspjvhtkjjvos1ig-a/filedrive
+DB_CONNECTION=pgsql
+DB_HOST=dpg-ch0ehspjvhtkjjvos1ig-a
+DB_PORT=5432
+DB_DATABASE=filedrive
+DB_USERNAME=pantho75
+DB_PASSWORD=SmNuoAeqLwrEO6Xbg16yd8Vmgz9SOmZf
+
+
+
+MAIL_MAILER=
+MAIL_HOST=
+MAIL_PORT=
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=
+MAIL_FROM_ADDRESS="filedrive@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+
+// the whole process - https://render.com/docs/deploy-php-laravel-docker
+
+// this is the docker doc - https://github.com/render-examples/php-laravel-docker/commit/c4bc0ccc7b72554135fed30eb676c37e86a40e87#diff-bb6b5a7a59f338ecddda121be40e0c6d8da771c2a2c6b20ea24700d433597e87

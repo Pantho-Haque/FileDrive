@@ -1,0 +1,55 @@
+@import "vars.css";
+
+/* fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:display=swap");
+* {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: "Oswald", sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    --inputholderdist: 0px;
+    --nav_side_margin: 50px;
+}
+
+.scrolling {
+    overflow-y: auto;
+}
+
+
+/* width */
+
+.scrolling::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+}
+
+
+/* Track */
+
+.scrolling::-webkit-scrollbar-track {
+    border-radius: 10px;
+    cursor: move;
+}
+
+
+/* Handle */
+
+.scrolling::-webkit-scrollbar-thumb {
+    background: #88aacd;
+    border-radius: 10px;
+}
+
+.btn,
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.5s;
+    font-size: 15px;
+}

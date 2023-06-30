@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/def8a6015a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./styles/admin.css" />
+        <title>Admin - FileDrive</title>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <!-- usser navigation -->
+            <div class="navigation">
+                <div class="logoimg">
+                    <img src="./assets/filedriveNavicon.svg" alt="logo" class="logo" />
+                </div>
+                <div class="scrolling" id="userlist">
+                    <a href="">
+                        <div class="singleuser">
+                            <b>1.</b>
+                            <p>Pantho Haque</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- user files -->
+            <div class="userfiles">
+                <div class="files scrolling"></div>
+            </div>
+
+            <!-- admin info -->
+            <div class="admininfo">
+                <p class="adminpanelheader">Admin Panel</p>
+                <!-- username -->
+                <div class="inputbox">
+                    <p class="inputholder">Username</p>
+                    <input class="inputfield" type="text" name="username" id="username">
+                </div>
+                <!-- password -->
+                <div class="inputbox ">
+                    <p class="inputholder ">Password</p>
+                    <input class="inputfield" type="password" name="password " id="password ">
+                </div>
+                <button class="btn btn-ash">Update</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        let userlist = document.querySelector("#userlist");
+        for (let i = 0; i < 115; i++) {
+            userlist.insertAdjacentHTML('beforeend', `<a href="">
+                    <div class="singleuser">
+                        <b>${i+1}.</b>
+                        <p>Pantho Haque</p>
+                    </div>
+                </a>`);
+        }
+
+        const filesDiv = document.querySelector('.files');
+        for (let i = 0; i < 25; i++) {
+            filesDiv.insertAdjacentHTML('beforeend', `<div class="file">
+                    <div class="heading">
+                        <b>${i + 1}.</b>
+                        <i class="fa-solid fa-bolt"></i>
+                        <p>${Math.random()}.txt</p>
+                    </div>
+
+                    <div class="control">
+                        <button class="btn btn-ash">
+                            <i class="fa-regular fa-folder-open"></i>
+                        </button>
+                        <button class="btn btn-ash">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </button>
+                        <button class="btn btn-ash">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>`);
+        }
+    </script>
+
+</html>

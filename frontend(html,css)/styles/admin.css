@@ -1,0 +1,75 @@
+@import "./modules/init.css";
+@import "index.css";
+.container {
+    display: flex;
+    justify-content: start;
+    padding: 0px 0px 0px 30px;
+}
+
+.navigation {
+    width: 15%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
+.logoimg {
+    padding: 10px;
+}
+
+.logo {
+    height: 5vh;
+    width: 100%;
+    background-color: transparent;
+}
+
+#userlist>a {
+    text-decoration: none;
+}
+
+.singleuser {
+    display: flex;
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: var(--bg-lighter);
+}
+
+.singleuser>* {
+    background-color: transparent;
+}
+
+
+/* user files */
+
+.userfiles {
+    margin: 0px 50px;
+    width: 60%;
+    height: 100vh;
+    background-color: var(--logo-500);
+}
+
+.files {
+    width: 100%;
+    margin: 0px;
+}
+
+
+/* admin info  */
+
+.admininfo {
+    width: 300px;
+    align-self: center;
+}
+
+.adminpanelheader {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.inputbox {
+    margin-bottom: 20px;
+}
+
+.inputholder {
+    margin-left: 25px;
+}

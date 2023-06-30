@@ -1,0 +1,206 @@
+@import "./modules/init.css";
+
+/* nav bar */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px var(--nav_side_margin) 0px var(--nav_side_margin);
+    padding: 0px 50px;
+    background-color: var(--bg-medium);
+}
+
+.logo {
+    width: 7%;
+    background-color: var(--bg-medium);
+}
+
+.profile_pic_nav {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    object-fit: cover;
+    border: 4px solid var(--border-logo);
+    border-radius: 50%;
+}
+
+
+/* body */
+
+.body {
+    margin: 20px var(--nav_side_margin) 0px;
+    padding: 10px 50px;
+    height: 88vh;
+    display: flex;
+}
+
+.navigation {
+    width: 20%;
+}
+
+
+/* profile */
+
+.profile,
+.storage {
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: var(--bg-medium);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.profile_pic {
+    width: 200px;
+    height: 200px;
+    margin: 0px 0px 30px 0px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--border-logo);
+}
+
+.btn-ash {
+    background-color: var(--ash-600);
+    border: 1px solid var(--logo-500);
+    border: none;
+    color: var(--text-light);
+}
+
+.btn-ash>i {
+    background: transparent;
+    margin-right: 5px;
+}
+
+.btn-ash:hover {
+    background-color: var(--ash-400);
+    border: 1px solid var(--logo-800);
+    color: var(--darkText-dark);
+}
+
+
+/* storage */
+
+.storagehead {
+    align-self: self-start;
+    justify-self: start;
+    font-size: 24px;
+}
+
+.bar {
+    background-color: var(--bg-dark);
+    border: 2px solid var(--logo-800);
+    height: 13px;
+    width: 100%;
+    position: relative;
+}
+
+#fill {
+    background-color: var(--logo-800);
+    height: 10px;
+    width: 80%;
+}
+
+.bar>i {
+    background-color: transparent;
+    color: var(--ash-200);
+    font-size: 26px;
+    position: absolute;
+    left: 75%;
+    top: -6px;
+}
+
+.storageInfo {
+    margin-top: 5px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.files {
+    width: 60%;
+    height: 100%;
+    background-color: var(--bg-medium);
+    border: 1px solid var(--border-logo);
+    border-right: 0px;
+    border-radius: 10px;
+    margin: 10px 19px;
+}
+
+.file {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.file:hover {
+    transition: 0.3s;
+    transform: scale(0.97);
+}
+
+.file>.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.file>.heading>i {
+    margin: 0px 20px;
+    color: yellow;
+}
+
+.file>.control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control>button>i {
+    margin: 0px;
+}
+
+
+/* track  */
+
+.track {
+    width: 20%;
+    height: 100%;
+    background-color: var(--bg-medium);
+    border: 1px solid var(--border-logo);
+    border-right: 0px;
+    border-radius: 10px;
+    margin: 10px 19px;
+}
+
+.track>.heading {
+    font-size: 26px;
+    background-color: transparent;
+    margin-left: 10px;
+    border-bottom: 1px solid var(--border-logo);
+}
+
+#todaytrackfile,
+#yesterdaytrackfile,
+#longagotrackfile {
+    background-color: transparent;
+}
+
+.trackfile {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    margin: 20px 30px;
+}
+
+.trackfile>i {
+    color: yellow;
+}
+
+.trackfile>.filename {
+    background-color: transparent;
+    margin: 0px 10px;
+    word-break: break-all;
+}

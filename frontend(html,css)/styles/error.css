@@ -1,0 +1,28 @@
+@import "./modules/init.css";
+@import "index.css";
+.container {
+    background-color: var(--tomato-500);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.container>* {
+    background-color: transparent;
+}
+
+.errorcode {
+    font-size: 150px;
+}
+
+.errorname {
+    font-size: 30px;
+}
+
+.errordetails {
+    margin: 20px;
+    width: 400px;
+    text-align: justify;
+}

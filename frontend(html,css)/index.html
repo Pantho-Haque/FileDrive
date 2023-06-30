@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/def8a6015a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./styles/index.css" />
+        <title>File Drive</title>
+    </head>
+
+    <body>
+        <div class="nav">
+            <img src="./assets/filedriveNavicon.svg" alt="logo" class="logo" />
+            <img src="https://static.fandomspot.com/images/07/7615/12-kiyotaka-ayanokoji-classroom-of-the-elite.jpg" alt="profile" class="profile_pic_nav" />
+        </div>
+
+        <div class="body">
+            <div class="navigation">
+                <div class="profile">
+                    <img src="https://static.fandomspot.com/images/07/7615/12-kiyotaka-ayanokoji-classroom-of-the-elite.jpg" alt="profile" class="profile_pic" />
+                    <button class="btn btn-ash">
+                    <i class="fas fa-cloud-arrow-up"></i>
+                    Upload
+                </button>
+                    <button class="btn btn-ash">
+                    <i class="fa-sharp fa-solid fa-gear"></i>Settings
+                </button>
+                </div>
+                <div class="storage">
+                    <p class="storagehead">Storage</p>
+                    <div class="bar">
+                        <div id="fill"></div>
+                        <i class="fa-solid fa-rocket"></i></i>
+
+                    </div>
+                    <code class="storageInfo">40 MB /50 MB</code>
+                </div>
+            </div>
+
+            <div class="files scrolling">
+                <!-- <div class="file">
+                    <div class="heading">
+                        <b>1.</b>
+                        <i class="fa-solid fa-bolt"></i>
+                        <p>hithere.txt</p>
+                    </div>
+
+                    <div class="control">
+                        <button class="btn btn-ash">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </button>
+                        <button class="btn btn-ash">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </button>
+                        <button class="btn btn-ash">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </button>
+                    </div>
+                </div> -->
+            </div>
+            <div class="track scrolling">
+                <p class="heading">Today</p>
+                <div id="todaytrackfile">
+                    <!-- <div class="trackfile">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <p class="filename">hitherehitherehitherehitherehitherehitherehitherehitherehithere.txt</p>
+                    </div> -->
+                </div>
+                <p class="heading">Yesterday</p>
+                <div id="yesterdaytrackfile">
+                    <!-- <div class="trackfile">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <p class="filename">hitherehitherehitherehitherehitherehitherehitherehitherehithere.txt</p>
+                    </div> -->
+                </div>
+                <p class="heading">Long ago</p>
+                <div id="longagotrackfile">
+                    <!-- <div class="trackfile">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <p class="filename">hitherehitherehitherehitherehitherehitherehitherehitherehithere.txt</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- <script>
+            let fill = document.getElementById('fill');
+
+            function doit() {
+                fill.style.width = "30%"
+            }
+        </script> -->
+
+        <script>
+            const filesDiv = document.querySelector('.files');
+            for (let i = 0; i < 25; i++) {
+                filesDiv.insertAdjacentHTML('beforeend', `<div class="file">
+                    <div class="heading">
+                        <b>${i + 1}.</b>
+                        <i class="fa-solid fa-bolt"></i>
+                        <p>${Math.random()}.txt</p>
+                    </div>
+
+                    <div class="control">
+                        <button class="btn btn-ash">
+                            <i class="fa-regular fa-folder-open"></i>
+                        </button>
+                        <button class="btn btn-ash">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </button>
+                        <button class="btn btn-ash">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>`);
+            }
+            const todaytrackfile = document.querySelector('#todaytrackfile');
+            for (let i = 0; i < 15; i++) {
+                todaytrackfile.insertAdjacentHTML('beforeend', `<div class="trackfile">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <p class="filename">${Math.random()}.txt</p>
+                    </div>`);
+            }
+            const yesterdaytrackfile = document.querySelector('#yesterdaytrackfile');
+            for (let i = 0; i < 15; i++) {
+                yesterdaytrackfile.insertAdjacentHTML('beforeend', `<div class="trackfile">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <p class="filename">${Math.random()}.txt</p>
+                    </div>`);
+            }
+            const longagotrackfile = document.querySelector('#longagotrackfile');
+            for (let i = 0; i < 15; i++) {
+                longagotrackfile.insertAdjacentHTML('beforeend', `<div class="trackfile">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <p class="filename">${Math.random()}.txt</p>
+                    </div>`);
+            }
+        </script>
+    </body>
+
+</html>

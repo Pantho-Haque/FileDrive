@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/def8a6015a.js" crossorigin="anonymous"></script>
+    <!-- base 64 to hash convertion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+
+    <link rel="stylesheet" href="./styles/signup.css" />
+    <title>File Drive</title>
+</head>
+
+<body>
+    <div class="container">
+        <img class="containerbg" src="./assets/signupbackground.svg" alt="" />
+        <div class="loginbox">
+
+
+            <!-- logo -->
+            <img class="logo logo-xl" src="./assets/filedriveNavicon.svg" alt="" srcset="">
+
+            <!-- picture -->
+            <div class="inputbox picturebox">
+                <p class="inputholder ">profile pic</p>
+                <input class="inputfield picturefield" type="file" name="picture " id="picture"
+                    onchange="imageUpload()">
+                <b class="or">Or</b>
+                <button class="btn btn-ash btn-box" onclick="onepcam()">
+                    Capture <i class="fa-solid fa-camera"></i>
+                </button>
+
+            </div>
+            <img id="picturepreview">
+
+
+            <!-- username -->
+            <div class="inputbox">
+                <p class="inputholder">Username</p>
+                <input class="inputfield" type="text" name="username" id="username">
+            </div>
+            <!-- Email -->
+            <div class="inputbox">
+                <p class="inputholder">Email</p>
+                <input class="inputfield" type="email" name="email" id="email">
+            </div>
+            <!-- password -->
+            <div class="inputbox ">
+                <p class="inputholder ">Password</p>
+                <input class="inputfield" type="password" name="password " id="password ">
+            </div>
+            <!-- retype password -->
+            <div class="inputbox ">
+                <p class="inputholder ">Re-type Password</p>
+                <input class="inputfield" type="password" name="password " id="password ">
+            </div>
+            <!-- forget pass -->
+            <p class="forgetpass">forget password</p>
+            <!--  -->
+            <button class="btn btn-ash btn-login " onclick="redirect()">Sign Up</button>
+            <hr />
+            <p class="nsup">Already have an account? </p>
+            <!-- go back to login -->
+            <button class="btn btn-ash goto" onclick="gotologin()">
+                Login page
+            </button>
+        </div>
+        <div id="camera">
+            <div class="camerabox">
+                <button class="btn btn-ash btn-box" onclick="closecam()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <video id="video" width="640" height="480" autoplay></video>
+                <button id="capture" class="btn btn-ash">Capture</button>
+            </div>
+
+        </div>
+        <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+</body>
+<script>
+    const cameratab = document.getElementById('camera');
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const captureButton = document.getElementById('capture');
+    let base64Image;
+
+    function redirect() {
+        location.assign('/index.html')
+        setTimeout(() => { }, 3000);
+    }
+
+    function gotologin() {
+        location.assign('/login.html')
+    }
+
+    function onepcam() {
+        cameratab.style.display = "flex";
+        navigator.mediaDevices.getUserMedia({
+            video: true
+        })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Could not access camera', error);
+            });
+
+    }
+
+    function sha256(str) {
+        return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);
+    }
+
+    function closecam() {
+        cameratab.style.display = "none";
+        const videoStream = document.querySelector('video').srcObject;
+        // get the track
+        const videoTrack = videoStream.getTracks()[0];
+        // stop the track
+        videoTrack.stop();
+    }
+    captureButton.addEventListener('click', () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        base64Image = canvas.toDataURL('image/jpeg');
+
+        imagePreview.src = base64Image;
+        console.log(base64Image);
+
+
+        // compute the hash of the image data
+        const hash = sha256(base64Image);
+
+        // take the first 16 characters of the hash to get a unique ID
+        const uniqueId = hash.toString();
+        console.log(uniqueId);
+
+
+        const text = "Hello, world!";
+        const hashTxt = sha256(text);
+        console.log(hashTxt);
+
+        closecam();
+
+
+
+        fetch('/upload-image/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                image: base64Image
+            })
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Image uploaded successfully');
+                } else {
+                    console.error('Failed to upload image');
+                }
+            })
+            .catch(error => {
+                console.error('Error while uploading image:', error);
+            });
+
+    });
+
+    const imagePreview = document.getElementById('picturepreview');
+    const fileInput = document.getElementById('picture')
+
+    function imageUpload() {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function () {
+            const base64Image = reader.result;
+            imagePreview.src = base64Image;
+
+            // Log the base64 data to the console
+            console.log(base64Image);
+        }
+        // Read the selected file as a data URL
+        reader.readAsDataURL(file);
+    }
+</script>
+
+</html>
